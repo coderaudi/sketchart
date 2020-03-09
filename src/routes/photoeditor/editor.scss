@@ -1,0 +1,41 @@
+$primaryColor: gray;
+
+
+.editor-page{
+    background: $primaryColor;
+
+    .editor-header{
+        background: steelblue;
+        height: 80px;
+    }
+
+    .editor-sidebar{
+        background: skyblue;
+        height: 100%;
+     }
+
+    .editor-playground{
+        background: yellow;
+        height: 600px;
+        padding-top: 50px;
+        padding-left: 100px;
+
+        .editor-playground-cover{
+           width: 800px;
+           height: 500px;
+           background : white;
+        }
+    }
+
+    .editor-footer{
+        background: slategrey;
+        height: 60px;
+    }
+}
+
+
+
+.draggable {
+    touch-action: none;
+    user-select: none;
+  }
