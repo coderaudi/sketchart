@@ -12,9 +12,7 @@ import Landing from "./landing";
 import MainApp from "../routes/index";
 
 
-ReactGA.initialize("UA-15399295-15");
-
-
+ReactGA.initialize("UA-160000456-1");
 
 
 class App extends Component {
