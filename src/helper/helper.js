@@ -1,6 +1,9 @@
 import { Button, notification } from 'antd';
 // handle all response errors
 
+
+
+
 export function handleError(error) {
     if (error && error.response && error.response.status !== 304) {
       let errorMessage = "";
@@ -21,3 +24,11 @@ export function handleError(error) {
       });
     }
   }
+
+
+  
+export const getTokenHeader = () => {
+  const token = localStorage.getItem('token');
+  const header = `Authorization: Bearer ${token}`;
+  return { headers: { header } };
+}

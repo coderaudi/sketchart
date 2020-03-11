@@ -4,7 +4,13 @@
 import {
     ADMIN_LOGIN,
     ADMIN_LOGIN_SUCCESS,
-    ADMIN_LOGIN_FAILURE
+    ADMIN_LOGIN_FAILURE,
+
+    GET_ALL_USER,
+    GET_ALL_USER_SUCCESS,
+    GET_ALL_USER_FAILURE,
+    
+
 } from '../actions/types';
 
 // /**
@@ -13,7 +19,10 @@ import {
 const INIT_STATE = {
     loadingAdminLogin: false,
     adminLoginStatus: false,
-    adminUser : null
+    adminUser : null,
+
+    allUserLoading : false,
+    allUserList : null
 };
 
 export default (state = INIT_STATE, action) => {
@@ -26,6 +35,9 @@ export default (state = INIT_STATE, action) => {
             };
 
         case ADMIN_LOGIN_SUCCESS:
+
+          localStorage.setItem('token', action.payload.data.token);
+
             return {
                 ...state,
                 loadingAdminLogin: true,
@@ -39,6 +51,27 @@ export default (state = INIT_STATE, action) => {
                 loadingAdminLogin: false,
                 adminLoginStatus: false
             };
+
+            case GET_ALL_USER:
+                return {
+                    ...state,  allUserLoading : true,
+                 
+                };
+    
+            case GET_ALL_USER_SUCCESS:
+
+                return {
+                    ...state,
+                     allUserLoading : false,
+                     allUserList : action.payload.data
+                };
+    
+            case GET_ALL_USER_FAILURE:
+                return {
+                    ...state,
+                    allUserLoading : false
+                };
+    
 
         default: return { ...state };
     }
